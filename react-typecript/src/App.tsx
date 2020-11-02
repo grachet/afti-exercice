@@ -5,7 +5,7 @@ import List from './component/List';
 function App() {
   return (
     <div className="App">
-      <List text={"My button"} />
+      <List list={["My button", "My second button", "My third button"]} />
     </div >
   );
 }
