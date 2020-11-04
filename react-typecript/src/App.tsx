@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import List from './component/List';
+import FormWrapper from './component/FormWrapper';
 
 function App() {
   return (
     <div className="App">
-      <List list={["My button", "My second button", "My third button"]} />
+      <FormWrapper />
     </div >
   );
 }

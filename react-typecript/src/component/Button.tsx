@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import '../index.css';
 
-export default function Button({ text: otherTextName }: { text: string }) {
+export type ButtonProps = {
+    type: "button" | "submit";
+    isDisabled: boolean,
+    text: string,
+    onClick: () => void
+}
 
-    return <button onClick={() => { alert(otherTextName) }}>
-        {otherTextName}
+const Button: FunctionComponent<ButtonProps> = ({ type, isDisabled, text, onClick }) => {
+
+    return <button
+        disabled={isDisabled}
+        onClick={() => onClick()}
+        type={type}
+    >
+        {text}
     </button>
 }
+
+export default Button;
