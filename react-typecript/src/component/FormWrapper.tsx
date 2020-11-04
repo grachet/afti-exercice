@@ -24,8 +24,7 @@ const FormWrapper: FunctionComponent<FormWrapperProps> = () => {
         setTextInputValue("")
     }
 
-    return <>
-        <List list={list} removeFromList={removeFromList} />
+    return <div className="formWrapper">
         <form onSubmit={(e) => addToList(e)}>
             <Input
                 type="text"
@@ -36,7 +35,9 @@ const FormWrapper: FunctionComponent<FormWrapperProps> = () => {
             />
             <Button type="submit" text="valider" isDisabled={!textInputValue} onClick={() => null} />
         </form>
-    </>
+        <br />
+        <List list={list} removeFromList={removeFromList} />
+    </div>
 }
 
 export default FormWrapper;

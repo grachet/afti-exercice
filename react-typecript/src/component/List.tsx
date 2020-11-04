@@ -9,20 +9,18 @@ export type ListProps = {
 
 const List: FunctionComponent<ListProps> = ({ list, removeFromList }) => {
 
-    return <div style={{ width: 200 }}>
-        <ul>
-            {list.map((task: string, index: number) => {
-                return <li key={index}>
-                    <Button
-                        type="submit"
-                        onClick={() => removeFromList(index)}
-                        isDisabled={false}
-                        text={task}
-                    />
-                </li>
-            })}
-        </ul>
-    </div>
+    return <ul>
+        {list.map((task: string, index: number) => {
+            return <li key={index}>
+                <Button
+                    type="submit"
+                    onClick={() => removeFromList(index)}
+                    isDisabled={false}
+                    text={task}
+                />
+            </li>
+        })}
+    </ul>
 }
 
 export default List;

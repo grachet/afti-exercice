@@ -7,6 +7,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App {
+  min-height: 100vh;
+}
+
+.formWrapper {
+  background-color: lightgray;
+  margin-right: auto;
+  margin-left: auto;
+ margin-top: 100px;
+ padding : 20px;
+ width: 400px;
+border-radius: 20px;
+}
+
+li {
+  list-style-type: none; 
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
