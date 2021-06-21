@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -47,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String player = "X";
+  String won = "";
 
   List<List<String>> board = [
     // ["1", "2", "3"],
@@ -57,13 +60,49 @@ class _MyHomePageState extends State<MyHomePage> {
     ["-", "-", "-"],
   ];
 
+  void test(List<String> line) {
+    if (line[0] != "-" && line[0] == line[1] && line[2] == line[1]) {
+      setState(() {
+        won = line[0];
+      });
+    }
+  }
+
   void _play(int index, int subIndex) {
-    setState(() {
-      if (board[index][subIndex] == "-") {
+    if (board[index][subIndex] == "-" && won == "") {
+      setState(() {
         board[index][subIndex] = player;
         player = player == "X" ? "O" : "X";
+      });
+      test([
+        board[0][0],
+        board[1][0],
+        board[2][0],
+      ]);
+      test([
+        board[0][1],
+        board[1][1],
+        board[2][1],
+      ]);
+      test([
+        board[0][2],
+        board[1][2],
+        board[2][2],
+      ]);
+      test([
+        board[0][2],
+        board[1][1],
+        board[2][0],
+      ]);
+      test([
+        board[0][0],
+        board[1][1],
+        board[2][2],
+      ]);
+      for (var row in board) {
+        test(row);
       }
-    });
+    }
   }
 
   var textStyle = TextStyle(
@@ -104,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Player : ' + player,
+              won == "" ? 'Player : ' + player : "Player " + won + " won",
               style: textStyle,
             ),
             Row(
