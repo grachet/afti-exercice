@@ -46,18 +46,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  String player = "X";
 
-  void _incrementCounter() {
+  void _play(int index) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      player = player == "X" ? "O" : "X";
     });
   }
+
+  var textStyle = TextStyle(
+      fontSize: 24.0, color: Colors.blue, fontWeight: FontWeight.w600);
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +91,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'Player : ' + player,
+              style: textStyle,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -104,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('1'),
-                        onPressed: () => null,
+                        onPressed: () => _play(1),
                       ),
                     )
                   ],
@@ -117,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('2'),
-                        onPressed: () => null,
+                        onPressed: () => _play(2),
                       ),
                     )
                   ],
@@ -130,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('3'),
-                        onPressed: () => null,
+                        onPressed: () => _play(3),
                       ),
                     )
                   ],
@@ -148,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('4'),
-                        onPressed: () => null,
+                        onPressed: () => _play(4),
                       ),
                     )
                   ],
@@ -161,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('5'),
-                        onPressed: () => null,
+                        onPressed: () => _play(5),
                       ),
                     )
                   ],
@@ -174,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('6'),
-                        onPressed: () => null,
+                        onPressed: () => _play(6),
                       ),
                     )
                   ],
@@ -192,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('7'),
-                        onPressed: () => null,
+                        onPressed: () => _play(7),
                       ),
                     )
                   ],
@@ -205,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('8'),
-                        onPressed: () => null,
+                        onPressed: () => _play(8),
                       ),
                     )
                   ],
@@ -218,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 80,
                       child: TextButton(
                         child: const Text('9'),
-                        onPressed: () => null,
+                        onPressed: () => _play(9),
                       ),
                     )
                   ],
@@ -231,17 +233,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-//  Card(
-//               child: Column(
-//               children: <Widget>[
-//               TextButton(
-//                 child: const Text('1'),
-//                 onPressed: () => null,
-//                 style: )},
-//               ),
-//             ],
-//              )),
-//             ] )
-
- 
