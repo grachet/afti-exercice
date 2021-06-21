@@ -48,9 +48,21 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String player = "X";
 
-  void _play(int index) {
+  List<List<String>> board = [
+    // ["1", "2", "3"],
+    // ["4", "5", "6"],
+    // ["7", "8", "9"],
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+    ["-", "-", "-"],
+  ];
+
+  void _play(int index, int subIndex) {
     setState(() {
-      player = player == "X" ? "O" : "X";
+      if (board[index][subIndex] == "-") {
+        board[index][subIndex] = player;
+        player = player == "X" ? "O" : "X";
+      }
     });
   }
 
@@ -105,8 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 80,
                       child: TextButton(
-                        child: const Text('1'),
-                        onPressed: () => _play(1),
+                        child: Text(board[0][0]),
+                        onPressed: () => _play(0, 0),
                       ),
                     )
                   ],
@@ -118,8 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 80,
                       child: TextButton(
-                        child: const Text('2'),
-                        onPressed: () => _play(2),
+                        child: Text(board[0][1]),
+                        onPressed: () => _play(0, 1),
                       ),
                     )
                   ],
@@ -131,52 +143,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 80,
                       child: TextButton(
-                        child: const Text('3'),
-                        onPressed: () => _play(3),
-                      ),
-                    )
-                  ],
-                )),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Card(
-                    child: Column(
-                  children: <Widget>[
-                    Container(
-                      height: 80,
-                      width: 80,
-                      child: TextButton(
-                        child: const Text('4'),
-                        onPressed: () => _play(4),
-                      ),
-                    )
-                  ],
-                )),
-                Card(
-                    child: Column(
-                  children: <Widget>[
-                    Container(
-                      height: 80,
-                      width: 80,
-                      child: TextButton(
-                        child: const Text('5'),
-                        onPressed: () => _play(5),
-                      ),
-                    )
-                  ],
-                )),
-                Card(
-                    child: Column(
-                  children: <Widget>[
-                    Container(
-                      height: 80,
-                      width: 80,
-                      child: TextButton(
-                        child: const Text('6'),
-                        onPressed: () => _play(6),
+                        child: Text(board[0][2]),
+                        onPressed: () => _play(0, 2),
                       ),
                     )
                   ],
@@ -193,8 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 80,
                       child: TextButton(
-                        child: const Text('7'),
-                        onPressed: () => _play(7),
+                        child: Text(board[1][0]),
+                        onPressed: () => _play(1, 0),
                       ),
                     )
                   ],
@@ -206,8 +174,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 80,
                       child: TextButton(
-                        child: const Text('8'),
-                        onPressed: () => _play(8),
+                        child: Text(board[1][1]),
+                        onPressed: () => _play(1, 1),
                       ),
                     )
                   ],
@@ -219,8 +187,52 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       width: 80,
                       child: TextButton(
-                        child: const Text('9'),
-                        onPressed: () => _play(9),
+                        child: Text(board[1][2]),
+                        onPressed: () => _play(1, 2),
+                      ),
+                    )
+                  ],
+                )),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Card(
+                    child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: TextButton(
+                        child: Text(board[2][0]),
+                        onPressed: () => _play(2, 0),
+                      ),
+                    )
+                  ],
+                )),
+                Card(
+                    child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: TextButton(
+                        child: Text(board[2][1]),
+                        onPressed: () => _play(2, 1),
+                      ),
+                    )
+                  ],
+                )),
+                Card(
+                    child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: TextButton(
+                        child: Text(board[2][2]),
+                        onPressed: () => _play(2, 2),
                       ),
                     )
                   ],
